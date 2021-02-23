@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -9,6 +11,7 @@ import com.example.demo.domain.Item;
 import com.example.demo.domain.Member;
 import com.example.demo.domain.Order;
 import com.example.demo.domain.OrderItem;
+import com.example.demo.domain.OrderSearch;
 import com.example.demo.repository.ItemRepository;
 import com.example.demo.repository.MemberRepository;
 import com.example.demo.repository.OrderRepository;
@@ -56,5 +59,8 @@ public class OrderService {
 	}
 	
 	
+	public List<Order> findOrders(OrderSearch orderSearch) {
+		return orderRepository.findAllByCriteria(orderSearch);
+	}
 	
 }
